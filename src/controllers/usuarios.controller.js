@@ -61,8 +61,7 @@ export const deleteUsers = async (req, res) => {
     if (rows.affectedRows <= 0) {
       return res.status(404).json({ message: "user not found" });
     }
-    console.log("User Deleted");
-    res.sendStatus(204);
+    res.send("User Deleted");
   } catch (error) {
     return res.status(500).json({ message: "Something goes wrong" });
   }
