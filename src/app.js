@@ -1,6 +1,6 @@
 import express from "express";
 import { _pool } from "./db.js";
-import router from "./routes/employes.routes.js";
+import router from "./routes/usuarios.routes.js";
 
 const app = express();
 
