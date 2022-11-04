@@ -57,15 +57,16 @@ export const createPosts = async (req, res) => {
 export const updatePost = async (req, res) => {
   try {
     const { id } = req.params;
-    const { titulo, descripcion, carrera_vinculada, tipo_anuncio, referencia } =
+    const { titulo, descripcion, carrera_vinculada, comentario, tipo_anuncio, referencia } =
       req.body;
 
     const [result] = await _pool.query(
-      "UPDATE anuncio SET titulo = IFNULL(?, titulo), descripcion = IFNULL(?, descripcion), carrera_vinculada = IFNULL(?, carrera_vinculada), tipo_anuncio = IFNULL(?, tipo_anuncio), referencia = IFNULL(?, referencia) WHERE id = ?",
+      "UPDATE anuncio SET titulo = IFNULL(?, titulo), descripcion = IFNULL(?, descripcion), carrera_vinculada = IFNULL(?, carrera_vinculada), comentario = IFNULL(?, comentario), tipo_anuncio = IFNULL(?, tipo_anuncio), referencia = IFNULL(?, referencia) WHERE id = ?",
       [
         titulo,
         descripcion,
         carrera_vinculada,
+        comentario,
         tipo_anuncio,
         referencia,
         id,
