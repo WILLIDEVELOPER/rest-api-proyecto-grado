@@ -9,16 +9,6 @@ export const getUsers = async (req, res) => {
   }
 };
 
-export const getLoginUser = async (req, res) => {
-  try {
-    const { nombre_usuario, contraseña } = req.query;
-    const [rows] = await _pool.query("SELECT id FROM user WHERE nombre_usuario = ? AND contraseña = ?", [nombre_usuario, contraseña]);
-    res.json(rows);
-  } catch (error) {
-    return res.status(500).json({ message: "Something goes wrong" });
-  }
-};
-
 export const createUsers = async (req, res) => {
   try {
     const { nombre, apellido, nombre_usuario, contraseña, fecha_registro } =
