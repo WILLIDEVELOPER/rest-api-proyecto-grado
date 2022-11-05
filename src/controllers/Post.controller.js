@@ -50,7 +50,7 @@ export const createPosts = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: "Something goes wrong" });
+    return res.status(500).json({ error });
   }
 };
 
